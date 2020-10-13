@@ -14,34 +14,34 @@
 
 <body>
     <header>
-        <div class="gutter-right logo">
-            <img src="assets/big-logo.png"/>
-        </div>
+        <img src="./assets/gotta-catch-em-all-transparent-pokemon-logo-11.png" height="150">
     </header>
     <main>
         <section class="main-section">
-            <img class="main-logo" src="assets/alchemy-logo.png"/>
-            <h2>
-                Welcome to Alchemy Bootstrap!
-            </h2>
-
-            <content>
-            <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam repellendus similique consectetur voluptas facilis molestiae voluptates nobis error sapiente, ad, ipsa vero non, sint eligendi? Eos praesentium iusto magnam exercitationem.
-                Earum sunt voluptatibus molestias, sint voluptatum quos reiciendis. Id asperiores deleniti dolores provident, eius, nostrum aperiam vel, optio qui illo corrupti in. Eum quam, est nemo porro sapiente excepturi assumenda.
-                Rerum unde quidem maxime. Ullam, dolores labore molestias voluptatibus adipisci quod? Quaerat nihil inventore molestiae assumenda, voluptates vel necessitatibus eligendi? Accusamus ratione eligendi reprehenderit? Beatae incidunt molestias ea soluta nulla.
-                Fugiat quae soluta voluptate mollitia praesentium modi ex illo, autem assumenda, vel aliquam fugit possimus dolorem esse corporis ipsa! Voluptatem sapiente error non, ea optio suscipit quasi maxime nobis ex?
-                Et ipsa tenetur ullam ab nesciunt quas fugit velit impedit illum esse eligendi corporis culpa praesentium aspernatur ex sint veniam quidem, doloribus corrupti hic vitae. Eum neque ducimus omnis exercitationem?
-            </p>
-            <hr />
-            <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam repellendus similique consectetur voluptas facilis molestiae voluptates nobis error sapiente, ad, ipsa vero non, sint eligendi? Eos praesentium iusto magnam exercitationem.
-                Earum sunt voluptatibus molestias, sint voluptatum quos reiciendis. Id asperiores deleniti dolores provident, eius, nostrum aperiam vel, optio qui illo corrupti in. Eum quam, est nemo porro sapiente excepturi assumenda.
-                Rerum unde quidem maxime. Ullam, dolores labore molestias voluptatibus adipisci quod? Quaerat nihil inventore molestiae assumenda, voluptates vel necessitatibus eligendi? Accusamus ratione eligendi reprehenderit? Beatae incidunt molestias ea soluta nulla.
-                Fugiat quae soluta voluptate mollitia praesentium modi ex illo, autem assumenda, vel aliquam fugit possimus dolorem esse corporis ipsa! Voluptatem sapiente error non, ea optio suscipit quasi maxime nobis ex?
-                Et ipsa tenetur ullam ab nesciunt quas fugit velit impedit illum esse eligendi corporis culpa praesentium aspernatur ex sint veniam quidem, doloribus corrupti hic vitae. Eum neque ducimus omnis exercitationem?
-            </p>
-
+            <h1>Welcome to your Pokemon Catcher Site!</h1>
+            <div class="poke-container">
+                <label class="poke-1">
+                <input type="radio" name="pokes" value=""><img src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/010.png">
+                <p id="poke-name1"></p>
+                </label>
+                <label class="poke-2">
+                    <input type="radio" name="pokes"><img src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/010.png">
+                    <p id="poke-name2"></p>
+                </label>
+                <label class="poke-3">
+                    <input type="radio" name="pokes">
+                    <img src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/010.png">
+                    <p id="poke-name3"></p>
+                </label>
+            </div>
+            <div><button id="catch-button">Catch 'em!</button></div>
+            <div id="results-container" class="hidden">
+                           <div id="results">
+                    <p id="chosen-poke"></p>
+                    <p id="rounds-left"></p>
+                    <button id="next-button">Next Round</button>
+                </div>
+            </div>
         </section>
     </main>
     <footer>
