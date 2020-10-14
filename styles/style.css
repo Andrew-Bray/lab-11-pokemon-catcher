@@ -1,9 +1,17 @@
+@font-face {
+    font-family: "pokemon";
+    src: url('../assets/Pokemon\ Solid.ttf');
+}
+@font-face {
+    font-family: "pokemon-outline";
+    src: url('../assets/Pokemon\ Hollow.ttf');
+}
 
 body {
-    --color1: #ffffff;
-    --color2: #ffffff;
-    --color3: #ffffff;
-    --color4: #ffffff;
+    --color1: #1d6efa;
+    --color2: #dfe920;
+    --color3: #f1b621;
+    --color4: #5305c1;
     --color5: #ffffff;
 
     /* https://coolors.co/generate and click export -> scss to get the colors to copy and paste below*/
@@ -21,11 +29,11 @@ body {
     
     --header-height: 80px;
     --shadow: 0px 10px 20px -12px rgba(0,0,0,0.45);
-    --gutter: 30px;
+    --gutter: 15px;
     --footer-height: 25px;
     
     font-family: 'Titillium Web', sans-serif;
-    background-color: var(--color2);
+    color: var(--color5);
 }
 
 main {
@@ -37,7 +45,6 @@ main {
 }
 
 section {
-    background-color: var(--color5);
     width: 1000px;
     display: flex;
     flex-direction: column;
@@ -50,16 +57,38 @@ section {
     border: solid 2px var(--color1);
 }
 
-header {
-    display: flex;
-    justify-content: center;
-    background-color: var(--color3);
-    box-shadow: var(--shadow);
+.poke-title {
+    margin-top: 50px;
 }
+
+.background {
+    position: fixed;
+    max-height: 100%;
+    max-width: 100%;
+    z-index: -1;
+}
+
+img.bg {
+    /* Set rules to fill background */
+    min-height: 100%;
+    min-width: 1024px;
+      
+    /* Set up proportionate scaling */
+    width: 100%;
+      
+    /* Set up positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
 
 .poke-container {
     display: flex;
     flex-direction: row;
+    font-family: pokemon;
+    font-size: 1.5rem;
+    color: var(--color3);
 }
 
 footer {
@@ -69,15 +98,38 @@ footer {
     box-shadow: var(--shadow);
 }
 
-label img {
-    height: auto;
-    width: 250px;
+button {
+    font-family: pokemon;
+}
 
+img {
+    filter: drop-shadow(3px 10px 10px rgba(225, 221, 221, .6)); 
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+:checked + img {
+    width: 225px;
+    opacity: 1;
+}
+
+:not(checked) + img {
+    width: 200px;
+    opacity: 0.94;
+}
+
+#results, #poke-name1, #poke-name2, #poke-name3 {
+    filter: drop-shadow(2px 2px 1px rgb(36, 35, 35));
 }
 
 h1 {
+    font-family: pokemon-outline;
+    color: var(--color3);
     font-size: 3rem;
     font-weight: bold;
+    filter: drop-shadow(1px 1px 1px rgb(36, 35, 35)); 
 }
 
 h2 {
@@ -103,7 +155,7 @@ p {
 }
   
 footer {
-    position: fixed;
+    position: relative;
     width: 100%;
     bottom: 0;
     height: var(--footer-height);

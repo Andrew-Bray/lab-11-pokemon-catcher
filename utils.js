@@ -16,4 +16,34 @@ export function findById(pokemonData, pokeId) {
     } return null;
 }
 
-//export function getPokeById() {}
+export function addInitialEncounter(someArray, someId) {
+    const pokemonObject = findById(pokemonData, someId);
+    const newEncounter = {
+        pokemon: pokemonObject.pokemon,
+        id: pokemonObject.id,
+        encounters: 0,
+        catches: 0,
+    }
+    someArray.push(newEncounter);
+}
+
+ 
+export function incrementEncounters(someArray, someId) {
+    let result = findById(someArray, someId);
+    if (!result) {
+        addInitialEncounter(someArray, someId);
+        //holy shitballs hmmm
+        result = findById(someArray, someId);
+    }   
+        result.encounters++;
+}
+//incrementCatches
+export function incrementCatches(someArray, someId) {
+    let result = findById(someArray, someId);
+    if (!result) {
+        addInitialEncounter(someArray, someId);
+        //holy shitballs hmmm
+        result = findById(someArray, someId);
+    }   
+        result.catches++;
+}

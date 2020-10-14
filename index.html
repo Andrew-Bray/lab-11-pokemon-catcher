@@ -13,24 +13,25 @@
 </head>
 
 <body>
-    <header>
-        <img src="./assets/gotta-catch-em-all-transparent-pokemon-logo-11.png" height="150">
-    </header>
+
+    <div class="background">
+        <img class="bg" src="./assets/hd-wallpapers-space-real-hd-wallpapers-v.jpg">
+    </div>
     <main>
+        <img class="poke-title" src="./assets/gotta-catch-em-all-transparent-pokemon-logo-11.png" height="150">
         <section class="main-section">
             <h1>Welcome to your Pokemon Catcher Site!</h1>
             <div class="poke-container">
                 <label class="poke-1">
-                <input type="radio" name="pokes" value=""><img src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/010.png">
-                <p id="poke-name1"></p>
+                    <input type="radio" id="poke-input1" name="pokes" value=""><img src="">
+                    <p id="poke-name1"></p>
                 </label>
                 <label class="poke-2">
-                    <input type="radio" name="pokes"><img src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/010.png">
+                    <input type="radio" id="poke-input2" name="pokes" value=""><img src="">
                     <p id="poke-name2"></p>
                 </label>
                 <label class="poke-3">
-                    <input type="radio" name="pokes">
-                    <img src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/010.png">
+                    <input type="radio" id="poke-input3" name="pokes" value=""><img src="">
                     <p id="poke-name3"></p>
                 </label>
             </div>
@@ -45,7 +46,7 @@
         </section>
     </main>
     <footer>
-        <div class="copy gutter-right">&copy; 2020 Alchemy Code Lab</div>
+       
     </footer>
 
     <script type="module" src="app.js"></script>
