@@ -54,7 +54,8 @@ section {
     padding-bottom: var(--gutter);
     margin-top: var(--gutter);
     margin-bottom: var(--gutter);
-    border: solid 2px var(--color1);
+    border: inset 2px var(--color1);
+    background-color: rgba(0,0,0,0.45);
 }
 
 .poke-title {
@@ -102,6 +103,10 @@ button {
     font-family: pokemon;
 }
 
+button:hover {
+    box-shadow: 0 0 0.5rem rgba(225, 221, 221, .6);
+}
+
 img {
     filter: drop-shadow(3px 10px 10px rgba(225, 221, 221, .6)); 
 }
@@ -110,9 +115,15 @@ input[type="radio"] {
     display: none;
 }
 
+#next-button {
+    display: flex;
+    align-items: center;
+}
+
 :checked + img {
     width: 225px;
     opacity: 1;
+    animation: radiate 1.5s infinite ease-in-out;
 }
 
 :not(checked) + img {
@@ -165,6 +176,24 @@ footer {
     box-shadow: var(--shadow);
 }
   
+@keyframes radiate {
+    0% {
+    filter: drop-shadow(3px 10px 10px rgba(225, 221, 221, .6)); 
+    }
+    30% {
+        filter: drop-shadow(3px 10px 5px rgba(140, 219, 50, 0.932)); 
+    }
+    50% {
+        filter: drop-shadow(3px 10px 20px rgba(49, 96, 252, 0.8)); 
+    }
+    65% {
+        filter: drop-shadow(3px 10px 2px rgb(202, 38, 38)); 
+    }
+    80% {
+        filter: drop-shadow(3px 10px 30px rgba(34, 141, 1, 0.9)); 
+    }
+}
+
   @keyframes pulse {
     20% {
       transform: rotate3d(-10, -10, -10, 50deg) scale(1.2);

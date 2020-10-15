@@ -32,7 +32,7 @@ export function incrementEncounters(someArray, someId) {
     let result = findById(someArray, someId);
     if (!result) {
         addInitialEncounter(someArray, someId);
-        //holy shitballs hmmm
+        //holy shitballs hmmm,
         result = findById(someArray, someId);
     }   
         result.encounters++;
@@ -46,4 +46,14 @@ export function incrementCatches(someArray, someId) {
         result = findById(someArray, someId);
     }   
         result.catches++;
+}
+
+export function setInLocalStorage(key, value) {
+    const stringedObject = JSON.stringify(value);
+    localStorage.setItem(key, stringedObject);
+}
+
+export function getFromLocalStorage(key) {
+    const stringedKey = localStorage.getItem(key);
+    return JSON.parse(stringedKey)
 }

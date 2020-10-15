@@ -1,6 +1,6 @@
 // import functions and grab DOM elements
 import { pokemonData } from './pokeData.js';
-import { getRandomPoke, findById, incrementCatches, incrementEncounters, addInitialEncounter } from './utils.js';
+import { getRandomPoke, findById, incrementCatches, incrementEncounters, setInLocalStorage, addInitialEncounter } from './utils.js';
 import { pokeCart } from './pokecart.js';
 
 // initialize state
@@ -26,48 +26,42 @@ for (let i = 0; i < pokeRadioTags.length; i++) { // for loop listens to all radi
         catchButton.disabled = false;
         // the selected poke needs to be isolated...
         const pickedPokemon = Number(e.target.value);
-            console.log(pickedPokemon);
+        console.log(pickedPokemon);
+        
     });
 }
-//recognize which poke radio has been selected
-//all three pokes shown are fed into the cart array
-    //three pokes must be found by id
-    //examine previous lab to remember how to make a cart array based on clicks
+
 
 catchButton.addEventListener('click', () => {
-    //const pickedPokemon = pokeRadioTags[:checked].value;
-//you are checked, and now I choose YOU
-    console.log(pokeCart);
-
-//function 
-    //usues findById to take in the rawdata dn return an object. if that poke object isn't in array, 
-    
-    //create an enountered object in the array (id, name, encountered= 1, captured) 
-   
-    
-    //If IS in array increment encountered by 1
-
-
-
-//use findbyID to find CAPTURED poke and add caught by 1 (++)
-//and the checked poke will find its matched id in the data
-
-
-    for (let i = 0; i < (pokeRadioTags.length); i++) {
-        pokeRadioTags[i].disabled = true;
-    };
-//and lower the roundsLeft by 1
     captureCounter--;
-//add to the countdawn clock!
-    roundsLeft.textContent = `You've got ${captureCounter} rounds left!`;
-//change the class by toggling hidden
-    resultsContainer.classList.toggle('hidden');
-//disable catchbutton
-    catchButton.disabled = true;
+
+    for(let i = 0; i <pokeRadioTags.length; i++) {
+    incrementEncounters(pokeCart, Number(pokeRadioTags[i].value));
+    }
+
+    const pickedPokemon = document.querySelector('[name="pokes"]:checked');
+    incrementCatches(pokeCart, Number(pickedPokemon.value));
+    setInLocalStorage('POKES', pokeCart);
+
+    if (captureCounter <= 0) {
+        window.location.href="./results";
+    } else {
+        for (let i = 0; i < (pokeRadioTags.length); i++) {
+            pokeRadioTags[i].disabled = true;
+        };
+    //and lower the roundsLeft by 1
+    //add to the countdawn clock!
+        roundsLeft.textContent = `You've got ${captureCounter} rounds left!`;
+    //change the class by toggling hidden
+        resultsContainer.classList.toggle('hidden');
+    //disable catchbutton
+        catchButton.disabled = true;
+    }
 });
 
+
+
 nextButton.addEventListener('click', () => {
-// needs to reset the page staerting with...
 // enabling the catchbutton
     catchButton.disabled = false;
 //hiding the lower div
@@ -76,15 +70,12 @@ nextButton.addEventListener('click', () => {
     for(let i = 0; i < pokeRadioTags.length; i++) {
         pokeRadioTags[i].disabled = false;
         pokeRadioTags[i].checked = false;
-        //pokeImgTags[i].style.opacity = 1;
-        //pokeImgTags[i].style.width = 200px;
-
     }
 //running the random function again
     renderPokemon();
 //if the countdown clock is 0, go to the results page!
-
 });
+
 //picks three random Pokemons and adds them to the DOM
 function renderPokemon() {
     //identify the 3 random poke vars
